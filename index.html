@@ -1,3 +1,4 @@
+> Xamchez:
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -12,7 +13,6 @@
   --primary:#4f8cff;
   --secondary:#6fe3c1;
   --dark:#1f2937;
-  --light:#f9fafb;
 }
 
 * { box-sizing:border-box; margin:0; padding:0; }
@@ -20,16 +20,15 @@ body {
   font-family: 'Inter', sans-serif;
   background: linear-gradient(180deg,#f9fafb,#eef2ff);
   color: var(--dark);
-  overflow-x: hidden;
 }
 
 header {
   position: sticky;
   top: 0;
-  z-index: 100;
-  background: rgba(255,255,255,0.85);
+  background: rgba(255,255,255,0.9);
   backdrop-filter: blur(12px);
   border-bottom:1px solid #e5e7eb;
+  z-index:100;
 }
 
 nav {
@@ -56,59 +55,27 @@ nav a {
   text-align:center;
   background: linear-gradient(135deg,var(--primary),var(--secondary));
   color:white;
-  position:relative;
-}
-
-.hero::after {
-  content:'';
-  position:absolute;
-  bottom:-1px;
-  width:100%;
-  height:120px;
-  background:white;
-  border-top-left-radius:50%;
-  border-top-right-radius:50%;
 }
 
 .hero-content {
   max-width:700px;
-  z-index:2;
   padding:20px;
 }
 
-.hero h1 {
-  font-size:3rem;
-  margin-bottom:20px;
-}
+.hero h1 { font-size:3rem; margin-bottom:20px; }
+.hero p { font-size:1.2rem; margin-bottom:30px; }
 
-.hero p {
-  font-size:1.2rem;
-  margin-bottom:30px;
-}
-
-.buttons button {
+button {
   padding:14px 24px;
-  margin:8px;
   border:none;
   border-radius:14px;
   font-size:1rem;
   cursor:pointer;
-  transition:0.3s;
+  margin:6px;
 }
 
-.primary {
-  background:white;
-  color:var(--primary);
-  font-weight:700;
-}
-
-.primary:hover { transform:translateY(-3px); }
-
-.secondary {
-  background:rgba(255,255,255,0.2);
-  color:white;
-  border:1px solid white;
-}
+.primary { background:white; color:var(--primary); font-weight:700; }
+.secondary { background:rgba(255,255,255,0.2); color:white; border:1px solid white; }
 
 .section {
   max-width:1200px;
@@ -127,20 +94,6 @@ nav a {
   padding:24px;
   border-radius:20px;
   box-shadow:0 20px 40px rgba(0,0,0,0.06);
-  transition:0.3s;
-}
-
-.card:hover { transform:translateY(-6px); }
-
-.card img {
-  width:100%;
-  border-radius:16px;
-  margin-bottom:16px;
-}
-
-.reviews img {
-  height:160px;
-  object-fit:cover;
 }
 
 .form {
@@ -158,14 +111,23 @@ nav a {
   border:1px solid #e5e7eb;
 }
 
-.form button {
-  background:var(--primary);
-  color:white;
-  border:none;
-  padding:14px;
-  width:100%;
-  border-radius:14px;
-  font-size:1rem;
+/* MODAL */
+.modal {
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.4);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:999;
+}
+
+.modal-content {
+  background:white;
+  padding:30px;
+  border-radius:20px;
+  text-align:center;
+  max-width:320px;
 }
 
 footer {
@@ -173,12 +135,6 @@ footer {
   padding:40px;
   background:#111827;
   color:white;
-}
-
-.parallax {
-  background:url('https://svgshare.com/i/uYf.svg') center/contain no-repeat;
-  height:240px;
-  margin:80px 0;
 }
 </style>
 </head>
@@ -199,85 +155,76 @@ footer {
 <section class="hero">
   <div class="hero-content">
     <h1>Уборка квартир и домов в Москве</h1>
-    <p>Профессионально, быстро и с заботой о вашем доме</p>
-    <div class="buttons">
-      <button class="primary" onclick="sendRequest()">Отправить заявку</button>
-      <button class="secondary" onclick="callPhone()">Позвонить</button>
-    </div>
+    <p>Заказать уборку — напишите или позвоните</p>
+
+    <button class="primary" onclick="scrollToForm()">Отправить заявку</button>
+    <button class="secondary" onclick="openModal()">Позвонить</button>
+
     <p style="margin-top:20px;">
       📧 <strong>aleksan21062009@gmail.com</strong><br>
-      📞 <strong>+7 909-667-31-13</strong><br>
-      <em>Заказать уборку — напишите или позвоните</em>
+      📞 <strong>+7 909-667-31-13</strong>
     </p>
   </div>
 </section>
 
-<div class="parallax"></div>
 <section class="section" id="order">
-  <h2>Наши услуги</h2>
-  <div class="cards">
-    <div class="card">
-      <img src="https://svgshare.com/i/uWm.svg">
-      <h3>Квартиры</h3>
-      <p>Генеральная и поддерживающая уборка</p>
-    </div>
-    <div class="card">
-      <img src="https://svgshare.com/i/uWu.svg">
-      <h3>Дома</h3>
-      <p>Чистота от подвала до чердака</p>
-    </div>
-    <div class="card">
-      <img src="https://svgshare.com/i/uWt.svg">
-      <h3>После ремонта</h3>
-      <p>Удаление пыли, мусора и запахов</p>
-    </div>
+  <h2>Оформление заявки</h2>
+  <div class="form">
+    <input placeholder="Ваше имя">
+    <input placeholder="Телефон">
+    <textarea placeholder="Что нужно убрать?"></textarea>
+    <button class="primary" onclick="sendError()">Отправить заявку</button>
   </div>
 </section>
 
-<section class="section reviews" id="reviews">
-  <h2>Отзывы клиентов</h2>
+<section class="section" id="reviews">
+  <h2>Отзывы</h2>
   <div class="cards">
-    <div class="card">
-      <img src="https://picsum.photos/400/300?1">
-      <strong>Анна</strong>
-      <p>Очень чисто и быстро! Рекомендую 👍</p>
-    </div>
-    <div class="card">
-      <img src="https://picsum.photos/400/300?2">
-      <strong>Игорь</strong>
-      <p>Заказывал уборку дома — результат отличный!</p>
-    </div>
-    <div class="card">
-      <img src="https://picsum.photos/400/300?3">
-      <strong>Мария</strong>
-      <p>Вежливые и аккуратные сотрудники ❤️</p>
-    </div>
+    <div class="card">Анна — Очень чисто и быстро 👍</div>
+    <div class="card">Игорь — Отличный сервис!</div>
+    <div class="card">Мария — Буду заказывать ещё ❤️</div>
   </div>
 </section>
 
 <section class="section" id="job">
   <h2>Работа в клининге</h2>
-  <div class="form">
-    <p>Хотите работать в клининге? Напишите нам:</p>
-    <p><strong>📧 aleksan21062009@gmail.com</strong></p>
-    <input placeholder="Ваше имя">
-    <input placeholder="Телефон">
-    <textarea placeholder="Коротко о себе"></textarea>
-    <button onclick="sendRequest()">Отправить заявку</button>
-  </div>
+  <p>Пишите нам: <strong>aleksan21062009@gmail.com</strong></p>
 </section>
 
 <footer>
-  © 2026 Клининговая компания • Москва
+  © 2026 Клининг Москва
 </footer>
 
+> Xamchez:
+<!-- MODAL -->
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <h3>Позвонить</h3>
+    <p style="font-size:1.2rem;"><strong>+7 909-667-31-13</strong></p>
+    <button class="primary" onclick="callNow()">Позвонить</button>
+    <button onclick="closeModal()">Закрыть</button>
+  </div>
+</div>
+
 <script>
-function sendRequest() {
-  alert("Ошибка отправки 😢\nПожалуйста, попробуйте позже");
+function scrollToForm() {
+  document.getElementById("order").scrollIntoView({behavior:"smooth"});
 }
 
-function callPhone() {
-  window.location.href = "tel:+79096673113";
+function sendError() {
+  alert("Ошибка отправки 😢\nПопробуйте позже");
+}
+
+function openModal() {
+  document.getElementById("modal").style.display="flex";
+}
+
+function closeModal() {
+  document.getElementById("modal").style.display="none";
+}
+
+function callNow() {
+  window.location.href="tel:+79096673113";
 }
 </script>
 
