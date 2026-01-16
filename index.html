@@ -6,10 +6,7 @@
   <title>Уборка квартир и домов в Москве</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 
   <style>
@@ -27,15 +24,13 @@
 <!-- HEADER -->
 <header class="sticky top-0 bg-white shadow z-50">
   <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-    <div class="text-2xl font-extrabold text-blue-600">
-      🧹 ЧистоДом
-    </div>
+    <div class="text-2xl font-extrabold text-blue-600">🧹 ЧистоДом</div>
     <nav class="space-x-6 hidden md:block">
-      <a href="#order" class="hover:text-blue-600">Заказать уборку</a>
-      <a href="#reviews" class="hover:text-blue-600">Отзывы</a>
-      <a href="#job" class="hover:text-blue-600">Работа</a>
+      <a href="#order">Заказать уборку</a>
+      <a href="#reviews">Отзывы</a>
+      <a href="#job">Работа</a>
     </nav>
-    <button onclick="openCallModal()" class="bg-blue-600 text-white px-5 py-2 rounded-xl hover:bg-blue-700 transition">
+    <button onclick="openCallModal()" class="bg-blue-600 text-white px-5 py-2 rounded-xl">
       📞 Позвонить
     </button>
   </div>
@@ -48,28 +43,18 @@
       <h1 class="text-4xl md:text-6xl font-extrabold mb-6">
         Уборка квартир и домов в Москве
       </h1>
-      <p class="text-xl mb-10">
-        Профессионально • Быстро • С улыбкой 😊
-      </p>
-      <div class="space-x-4">
-        <button onclick="scrollToOrder()" class="bg-blue-600 px-8 py-4 rounded-2xl text-lg hover:bg-blue-700 transition">
-          Заказать уборку
-        </button>
-        <button onclick="openCallModal()" class="bg-white text-gray-900 px-8 py-4 rounded-2xl text-lg hover:bg-gray-100 transition">
-          Позвонить
-        </button>
-      </div>
-      <p class="mt-6 text-lg">
-        Заказать уборку — напишите или позвоните
-      </p>
+      <p class="text-xl mb-10">Профессионально • Быстро • С улыбкой 😊</p>
+      <button onclick="scrollToOrder()" class="bg-blue-600 px-8 py-4 rounded-2xl text-lg">
+        Заказать уборку
+      </button>
     </div>
   </div>
 </section>
 
-<!-- ORDER FORM -->
+<!-- ORDER -->
 <section id="order" class="max-w-5xl mx-auto px-6 py-24">
   <h2 class="text-3xl font-extrabold mb-10 text-center">
-    🧽 Оформление заявки на уборку
+    🧽 Оформление заявки
   </h2>
 
   <div class="bg-white rounded-3xl shadow-lg p-10">
@@ -80,73 +65,49 @@
       <textarea class="border rounded-xl p-4 md:col-span-2" placeholder="Комментарий"></textarea>
     </div>
 
-    <button onclick="showError()" class="mt-8 w-full bg-blue-600 text-white py-4 rounded-2xl text-lg hover:bg-blue-700">
+    <button onclick="showError()" class="mt-8 w-full bg-blue-600 text-white py-4 rounded-2xl">
       Отправить заявку
     </button>
 
     <p class="text-center mt-6 text-gray-500">
-      Email: <strong>aleksan21062009@gmail.com</strong> <br>
-      Телефон: <strong>+7 909-667-31-13</strong>
+      Email: <b>aleksan21062009@gmail.com</b><br>
+      Телефон: <b>+7 909-667-31-13</b>
     </p>
   </div>
 </section>
 
 <!-- REVIEWS -->
 <section id="reviews" class="bg-gray-100 py-24">
-  <div class="max-w-7xl mx-auto px-6">
+  <div class="max-w-6xl mx-auto px-6">
     <h2 class="text-3xl font-extrabold mb-12 text-center">
-      ⭐ Отзывы наших клиентов
+      ⭐ Отзывы клиентов
     </h2>
 
-    <div class="grid md:grid-cols-3 gap-8">
-      <div class="bg-white p-6 rounded-2xl shadow">
-        <img class="rounded-xl mb-4" src="https://images.unsplash.com/photo-1581578017426-cc4a4e1c6c8f">
-        <p class="font-semibold">Анна, Москва</p>
-        <p class="text-sm mt-2">Очень чисто, быстро и аккуратно! Буду заказывать ещё.</p>
-      </div>
-
-      <div class="bg-white p-6 rounded-2xl shadow">
-        <img class="rounded-xl mb-4" src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c">
-        <p class="font-semibold">Игорь</p>
-        <p class="text-sm mt-2">Приятные сотрудники, отличный сервис.</p>
-      </div>
-
-> Xamchez:
-<div class="bg-white p-6 rounded-2xl shadow">
-        <img class="rounded-xl mb-4" src="https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf">
-        <p class="font-semibold">Марина</p>
-        <p class="text-sm mt-2">Квартира блестит ✨ Спасибо!</p>
-      </div>
+    <div id="reviewsList" class="grid md:grid-cols-3 gap-6 mb-10">
+      <!-- reviews injected here -->
     </div>
 
-    <div class="mt-12 text-center text-gray-500">
-      Вы можете оставить фото и отзыв (функция демонстрационная)
+    <div class="text-center">
+      <button onclick="openReviewModal()" class="bg-blue-600 text-white px-8 py-4 rounded-2xl">
+        Оставить отзыв
+      </button>
     </div>
   </div>
 </section>
 
 <!-- JOB -->
-<section id="job" class="max-w-5xl mx-auto px-6 py-24">
-  <h2 class="text-3xl font-extrabold mb-6 text-center">
-    👷 Работа в клининге
-  </h2>
-
-  <div class="bg-white p-10 rounded-3xl shadow-lg text-center">
-    <p class="text-lg mb-6">
-      Хотите работать в сфере клининга? Мы всегда рады новым людям!
-    </p>
-    <p class="text-xl font-semibold">
-      Пишите на email:
-    </p>
-    <p class="text-blue-600 text-xl font-bold mt-2">
+<section id="job" class="max-w-5xl mx-auto px-6 py-24 text-center">
+  <h2 class="text-3xl font-extrabold mb-6">👷 Работа в клининге</h2>
+  <div class="bg-white p-10 rounded-3xl shadow-lg">
+    <p class="text-lg mb-4">Хотите работать у нас?</p>
+    <p class="text-xl font-bold text-blue-600">
       aleksan21062009@gmail.com
     </p>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer class="bg-gray-900 text-white py-10 text-center">
-  <p>© 2026 ЧистоДом — Уборка в Москве</p>
+  © 2026 ЧистоДом
 </footer>
 
 <!-- CALL MODAL -->
@@ -154,9 +115,11 @@
   <div class="bg-white rounded-2xl p-8 text-center w-80">
     <h3 class="text-xl font-bold mb-4">Позвонить</h3>
     <p class="mb-6 text-lg">+7 909-667-31-13</p>
-    <div class="space-x-4">
+
+> Xamchez:
+<div class="space-x-4">
       <a href="tel:+79096673113" class="bg-blue-600 text-white px-6 py-3 rounded-xl">
-        📞 Позвонить
+        Позвонить
       </a>
       <button onclick="closeCallModal()" class="bg-gray-200 px-6 py-3 rounded-xl">
         Закрыть
@@ -165,41 +128,98 @@
   </div>
 </div>
 
-<!-- ERROR MODAL -->
+<!-- REVIEW MODAL -->
+<div id="reviewModal" class="fixed inset-0 bg-black/50 hidden items-center justify-center z-50">
+  <div class="bg-white rounded-2xl p-8 w-96">
+    <h3 class="text-xl font-bold mb-4 text-center">Оставить отзыв</h3>
+    <input id="reviewName" class="border rounded-xl p-3 w-full mb-4" placeholder="Ваше имя">
+    <textarea id="reviewText" class="border rounded-xl p-3 w-full mb-4" placeholder="Ваш отзыв"></textarea>
+    <button onclick="addReview()" class="w-full bg-blue-600 text-white py-3 rounded-xl">
+      Отправить отзыв
+    </button>
+  </div>
+</div>
+
+<!-- ERROR -->
 <div id="errorModal" class="fixed inset-0 bg-black/50 hidden items-center justify-center z-50">
   <div class="bg-white rounded-2xl p-10 text-center w-80">
     <div class="text-5xl mb-4">😢</div>
-    <p class="text-lg font-semibold">Ошибка отправки</p>
-    <p class="text-gray-500 mt-2">Заявка не была отправлена</p>
+    <p class="font-semibold">Ошибка отправки</p>
     <button onclick="closeError()" class="mt-6 bg-blue-600 text-white px-6 py-3 rounded-xl">
       Понятно
     </button>
   </div>
 </div>
 
-<!-- JS -->
 <script>
-  function scrollToOrder() {
-    document.getElementById('order').scrollIntoView({ behavior: 'smooth' });
+  const reviewsKey = 'cleaning_reviews';
+
+  const defaultReviews = [
+    { name: 'Анна', text: 'Очень чисто и аккуратно!' },
+    { name: 'Игорь', text: 'Отличный сервис, рекомендую.' },
+    { name: 'Марина', text: 'Квартира блестит ✨' }
+  ];
+
+  function loadReviews() {
+    const data = JSON.parse(localStorage.getItem(reviewsKey)) || defaultReviews;
+    const container = document.getElementById('reviewsList');
+    container.innerHTML = '';
+    data.forEach(r => {
+      container.innerHTML += 
+        <div class="bg-white p-6 rounded-2xl shadow">
+          <p class="font-semibold mb-2">${r.name}</p>
+          <p class="text-sm text-gray-700">${r.text}</p>
+        </div>;
+    });
+    localStorage.setItem(reviewsKey, JSON.stringify(data));
+  }
+
+  function addReview() {
+    const name = reviewName.value.trim();
+    const text = reviewText.value.trim();
+    if (!name || !text) return;
+
+    const reviews = JSON.parse(localStorage.getItem(reviewsKey)) || [];
+    reviews.unshift({ name, text });
+    localStorage.setItem(reviewsKey, JSON.stringify(reviews));
+    closeReviewModal();
+    loadReviews();
+  }
+
+  function openReviewModal() {
+    reviewModal.classList.remove('hidden');
+    reviewModal.classList.add('flex');
+  }
+
+  function closeReviewModal() {
+    reviewModal.classList.add('hidden');
+    reviewName.value = '';
+    reviewText.value = '';
   }
 
   function openCallModal() {
-    document.getElementById('callModal').classList.remove('hidden');
-    document.getElementById('callModal').classList.add('flex');
+    callModal.classList.remove('hidden');
+    callModal.classList.add('flex');
   }
 
   function closeCallModal() {
-    document.getElementById('callModal').classList.add('hidden');
+    callModal.classList.add('hidden');
+  }
+
+  function scrollToOrder() {
+    order.scrollIntoView({ behavior: 'smooth' });
   }
 
   function showError() {
-    document.getElementById('errorModal').classList.remove('hidden');
-    document.getElementById('errorModal').classList.add('flex');
+    errorModal.classList.remove('hidden');
+    errorModal.classList.add('flex');
   }
 
   function closeError() {
-    document.getElementById('errorModal').classList.add('hidden');
+    errorModal.classList.add('hidden');
   }
+
+  loadReviews();
 </script>
 
 </body>
