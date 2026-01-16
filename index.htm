@@ -1,250 +1,165 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Elena Petrenko – Professional Cleaning Services</title>
-
-<!-- Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-<!-- Icons -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-
-<!-- EmailJS -->
-<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-
-<style>
-:root {
-  --primary:#4fc3f7;
-  --secondary:#e1f5fe;
-  --dark:#1e293b;
-  --light:#ffffff;
-}
-
-* { box-sizing:border-box; }
-body {
-  margin:0;
-  font-family:'Inter',sans-serif;
-  color:var(--dark);
-  background:#f8fafc;
-  scroll-behavior:smooth;
-}
-
-/* NAV */
-nav {
-  position:fixed;
-  top:0; left:0;
-  width:100%;
-  background:rgba(255,255,255,0.9);
-  backdrop-filter:blur(10px);
-  z-index:1000;
-  padding:15px 40px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-nav a {
-  margin-left:20px;
-  text-decoration:none;
-  font-weight:600;
-  color:var(--dark);
-}
-nav a:hover { color:var(--primary); }
-
-/* HERO */
-.hero {
-  height:100vh;
-  background:
-    linear-gradient(rgba(255,255,255,0.85),rgba(255,255,255,0.85)),
-    url("https://images.unsplash.com/photo-1581578731548-c64695cc6952") center/cover fixed;
-  display:flex;
-  align-items:center;
-  padding:40px;
-}
-.hero-content {
-  max-width:600px;
-}
-.hero h1 {
-  font-size:3rem;
-}
-.hero p {
-  font-size:1.2rem;
-}
-.btn {
-  background:var(--primary);
-  color:#fff;
-  padding:15px 25px;
-  border:none;
-  border-radius:30px;
-  font-weight:600;
-  cursor:pointer;
-  margin-top:20px;
-}
-.btn:hover { opacity:0.9; }
-
-/* SECTIONS */
-section {
-  padding:100px 40px;
-  max-width:1200px;
-  margin:auto;
-}
-h2 {
-  text-align:center;
-  font-size:2.4rem;
-  margin-bottom:40px;
-}
-
-/* CARDS */
-.cards {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:30px;
-}
-.card {
-  background:#fff;
-  padding:30px;
-  border-radius:20px;
-  box-shadow:0 20px 40px rgba(0,0,0,0.05);
-  text-align:center;
-}
-
-/* FORMS */
-form {
-  max-width:600px;
-  margin:auto;
-}
-input, textarea {
-  width:100%;
-  padding:15px;
-  margin-bottom:15px;
-  border-radius:12px;
-  border:1px solid #ddd;
-  font-size:1rem;
-}
-input[type="file"] { border:none; }
-
-/* REVIEWS */
-.reviews {
-  background:var(--secondary);
-}
-
-/* FOOTER */
-footer {
-  background:#0f172a;
-  color:#fff;
-  padding:40px;
-  text-align:center;
-}
-footer a { color:var(--primary); }
-
-/* PARALLAX ILLUSTRATION */
-.sketch {
-  background:url("https://svgshare.com/i/15Zk.svg") center/contain no-repeat;
-  height:250px;
-  margin-bottom:40px;
-}
-
-/* RESPONSIVE */
-@media(max-width:768px){
-  .hero h1{font-size:2.2rem;}
-  nav{padding:10px 20px;}
-}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Елена Петренко — Профессиональная уборка</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', sans-serif;
+      color: #1f2937;
+      background: #f9fafb;
+      line-height: 1.6;
+    }
+    header {
+      min-height: 100vh;
+      background: linear-gradient(120deg, #e0f2fe, #fefce8);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 40px;
+    }
+    header h1 { font-size: 48px; margin-bottom: 10px; }
+    header p { font-size: 20px; max-width: 700px; }
+    nav {
+      position: fixed;
+      top: 0; width: 100%;
+      background: rgba(255,255,255,0.9);
+      backdrop-filter: blur(10px);
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 15px;
+      z-index: 1000;
+    }
+    nav a {
+      text-decoration: none;
+      color: #111827;
+      font-weight: 600;
+    }
+    section { padding: 80px 20px; max-width: 1100px; margin: auto; }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+    .card {
+      background: white;
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+      transition: transform 0.3s;
+    }
+    .card:hover { transform: translateY(-5px); }
+    h2 { font-size: 36px; margin-bottom: 40px; text-align: center; }
+    form {
+      display: grid;
+      gap: 15px;
+      max-width: 600px;
+      margin: auto;
+    }
+    input, textarea {
+      padding: 15px;
+      border-radius: 12px;
+      border: 1px solid #d1d5db;
+      font-size: 16px;
+    }
+    button {
+      padding: 15px;
+      border: none;
+      border-radius: 14px;
+      background: #0ea5e9;
+      color: white;
+      font-size: 18px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    button:hover { background: #0284c7; }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+      gap: 20px;
+    }
+    .gallery img {
+      width: 100%;
+      border-radius: 16px;
+    }
+    footer {
+      background: #111827;
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+  </style>
 </head>
-
 <body>
 
 <nav>
-  <strong>Elena Petrenko</strong>
-  <div>
-    <a href="#order">Order Cleaning</a>
-    <a href="#reviews">Reviews</a>
-    <a href="#jobs">Jobs</a>
-    <a href="#contact">Contact</a>
-  </div>
+  <a href="#about">Обо мне</a>
+  <a href="#order">Заказать уборку</a>
+  <a href="#reviews">Отзывы</a>
+  <a href="#jobs">Работа</a>
+  <a href="#contacts">Контакты</a>
 </nav>
 
-<div class="hero">
-  <div class="hero-content">
-    <h1>Professional Cleaning Services</h1>
-    <p>Hi, I’m <strong>Elena Petrenko</strong>, 40 years old, a professional cleaner who loves making homes shine ✨</p>
-    <p>📞 +7 909-667-31-13<br>
-       ✉️ aleksan21062009@gmail.com</p>
-    <a href="#order"><button class="btn">Order Cleaning</button></a>
-  </div>
-</div>
+<header>
+  <h1>Елена Петренко</h1>
+  <p>Профессиональный клинер, 40 лет. Качественная, аккуратная и честная уборка квартир и домов.</p>
+</header>
 
-<section>
-  <div class="sketch"></div>
-  <h2>Why Choose Me?</h2>
+<section id="about">
+  <h2>Почему выбирают меня</h2>
   <div class="cards">
-    <div class="card"><i class="fa-solid fa-broom fa-2x"></i><h3>Professional</h3><p>High-quality and reliable cleaning</p></div>
-    <div class="card"><i class="fa-solid fa-spray-can fa-2x"></i><h3>Eco-friendly</h3><p>Safe cleaning products</p></div>
-    <div class="card"><i class="fa-solid fa-clock fa-2x"></i><h3>On Time</h3><p>Punctual and efficient service</p></div>
+    <div class="card">🧼 Профессиональный подход и опыт</div>
+    <div class="card">✨ Современные средства и техника</div>
+    <div class="card">💙 Бережное отношение к вашему дому</div>
   </div>
 </section>
+
 <section id="order">
-  <h2>Order Cleaning</h2>
-  <form id="orderForm">
-    <input name="name" placeholder="Your name" required>
-    <input name="phone" placeholder="Phone number" required>
-    <input name="email" placeholder="Email">
-    <textarea name="details" placeholder="Describe your cleaning needs"></textarea>
-    <button class="btn" type="submit">Send Order</button>
+  <h2>Заказать уборку</h2>
+  <form action="mailto:aleksan21062009@gmail.com" method="post" enctype="text/plain">
+    <input type="text" name="Имя" placeholder="Ваше имя" required>
+    <input type="tel" name="Телефон" placeholder="Телефон" required>
+    <textarea name="Детали" rows="5" placeholder="Опишите тип уборки"></textarea>
+    <button type="submit">Отправить заявку</button>
   </form>
 </section>
 
-<section id="reviews" class="reviews">
-  <h2>Reviews & Photos</h2>
-  <form id="reviewForm">
-    <input name="name" placeholder="Your name">
-    <textarea name="review" placeholder="Your review"></textarea>
-    <input type="file" name="photo">
-    <button class="btn" type="submit">Submit Review</button>
-  </form>
+<section id="reviews">
+  <h2>Отзывы клиентов</h2>
+  <div class="gallery">
+    <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952" alt="clean">
+    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c" alt="clean">
+    <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3" alt="clean">
+  </div>
+  <p style="text-align:center;margin-top:20px;">Вы можете прислать свой отзыв и фото на почту</p>
 </section>
-
 <section id="jobs">
-  <h2>Work With Me</h2>
-  <p style="text-align:center;">Want a job in cleaning? Send your details below.</p>
-  <form id="jobForm">
-    <input name="name" placeholder="Your name" required>
-    <input name="phone" placeholder="Phone number" required>
-    <textarea name="experience" placeholder="Your experience"></textarea>
-    <button class="btn" type="submit">Apply</button>
-  </form>
+  <h2>Работа в клининге</h2>
+  <p style="text-align:center;max-width:700px;margin:auto;">
+    Если вы хотите работать в сфере клининга — напишите мне на почту.
+  </p>
+  <div style="text-align:center;margin-top:30px;">
+    <a href="mailto:aleksan21062009@gmail.com">
+      <button>Откликнуться на вакансию</button>
+    </a>
+  </div>
 </section>
 
-<footer id="contact">
-  <p>📞 +7 909-667-31-13</p>
-  <p>✉️ <a href="mailto:aleksan21062009@gmail.com">aleksan21062009@gmail.com</a></p>
-  <p>© 2026 Elena Petrenko</p>
+<section id="contacts">
+  <h2>Контакты</h2>
+  <p style="text-align:center;">📧 Email: aleksan21062009@gmail.com</p>
+  <p style="text-align:center;">📞 Телефон: +7 909‑667‑31‑13</p>
+</section>
+
+<footer>
+  <p>© 2026 Елена Петренко — Профессиональная уборка</p>
 </footer>
-
-<script>
-emailjs.init("YOUR_PUBLIC_KEY");
-
-function sendEmail(formId, template){
-  document.getElementById(formId).addEventListener("submit", function(e){
-    e.preventDefault();
-    emailjs.sendForm(
-      "YOUR_SERVICE_ID",
-      template,
-      this
-    ).then(() => {
-      alert("Message sent successfully!");
-      this.reset();
-    }, (err) => {
-      alert("Error: " + err.text);
-    });
-  });
-}
-
-sendEmail("orderForm","YOUR_TEMPLATE_ID");
-sendEmail("reviewForm","YOUR_TEMPLATE_ID");
-sendEmail("jobForm","YOUR_TEMPLATE_ID");
-</script>
 
 </body>
 </html>
