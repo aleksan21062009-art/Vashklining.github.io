@@ -2,230 +2,204 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Уборка квартир и домов в Москве</title>
+  <meta charset="UTF-8" />
+  <title>Уборка квартир и домов в Москве</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
 
-<style>
-:root {
-  --primary:#4f8cff;
-  --secondary:#6fe3c1;
-  --dark:#1f2937;
-}
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 
-* { box-sizing:border-box; margin:0; padding:0; }
-body {
-  font-family: 'Inter', sans-serif;
-  background: linear-gradient(180deg,#f9fafb,#eef2ff);
-  color: var(--dark);
-}
-
-header {
-  position: sticky;
-  top: 0;
-  background: rgba(255,255,255,0.9);
-  backdrop-filter: blur(12px);
-  border-bottom:1px solid #e5e7eb;
-  z-index:100;
-}
-
-nav {
-  max-width:1200px;
-  margin:auto;
-  padding:16px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-
-nav a {
-  margin-left:20px;
-  text-decoration:none;
-  font-weight:600;
-  color:var(--dark);
-}
-
-.hero {
-  min-height:90vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  background: linear-gradient(135deg,var(--primary),var(--secondary));
-  color:white;
-}
-
-.hero-content {
-  max-width:700px;
-  padding:20px;
-}
-
-.hero h1 { font-size:3rem; margin-bottom:20px; }
-.hero p { font-size:1.2rem; margin-bottom:30px; }
-
-button {
-  padding:14px 24px;
-  border:none;
-  border-radius:14px;
-  font-size:1rem;
-  cursor:pointer;
-  margin:6px;
-}
-
-.primary { background:white; color:var(--primary); font-weight:700; }
-.secondary { background:rgba(255,255,255,0.2); color:white; border:1px solid white; }
-
-.section {
-  max-width:1200px;
-  margin:100px auto;
-  padding:20px;
-}
-
-.cards {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:24px;
-}
-
-.card {
-  background:white;
-  padding:24px;
-  border-radius:20px;
-  box-shadow:0 20px 40px rgba(0,0,0,0.06);
-}
-
-.form {
-  background:white;
-  padding:30px;
-  border-radius:20px;
-  box-shadow:0 20px 40px rgba(0,0,0,0.06);
-}
-
-.form input, .form textarea {
-  width:100%;
-  padding:14px;
-  margin-bottom:16px;
-  border-radius:12px;
-  border:1px solid #e5e7eb;
-}
-
-/* MODAL */
-.modal {
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,0.4);
-  display:none;
-  align-items:center;
-  justify-content:center;
-  z-index:999;
-}
-
-.modal-content {
-  background:white;
-  padding:30px;
-  border-radius:20px;
-  text-align:center;
-  max-width:320px;
-}
-
-footer {
-  text-align:center;
-  padding:40px;
-  background:#111827;
-  color:white;
-}
-</style>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .parallax {
+      background-attachment: fixed;
+      background-size: cover;
+      background-position: center;
+    }
+  </style>
 </head>
 
-<body>
+<body class="bg-gray-50 text-gray-800">
 
-<header>
-  <nav>
-    <strong>🧼 Клининг Москва</strong>
-    <div>
-      <a href="#order">Заказать уборку</a>
-      <a href="#reviews">Отзывы</a>
-      <a href="#job">Работа</a>
+<!-- HEADER -->
+<header class="sticky top-0 bg-white shadow z-50">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    <div class="text-2xl font-extrabold text-blue-600">
+      🧹 ЧистоДом
     </div>
-  </nav>
+    <nav class="space-x-6 hidden md:block">
+      <a href="#order" class="hover:text-blue-600">Заказать уборку</a>
+      <a href="#reviews" class="hover:text-blue-600">Отзывы</a>
+      <a href="#job" class="hover:text-blue-600">Работа</a>
+    </nav>
+    <button onclick="openCallModal()" class="bg-blue-600 text-white px-5 py-2 rounded-xl hover:bg-blue-700 transition">
+      📞 Позвонить
+    </button>
+  </div>
 </header>
 
-<section class="hero">
-  <div class="hero-content">
-    <h1>Уборка квартир и домов в Москве</h1>
-    <p>Заказать уборку — напишите или позвоните</p>
+<!-- HERO -->
+<section class="parallax bg-[url('https://images.unsplash.com/photo-1581578731548-c64695cc6952')] text-white">
+  <div class="bg-black/50">
+    <div class="max-w-7xl mx-auto px-6 py-32 text-center">
+      <h1 class="text-4xl md:text-6xl font-extrabold mb-6">
+        Уборка квартир и домов в Москве
+      </h1>
+      <p class="text-xl mb-10">
+        Профессионально • Быстро • С улыбкой 😊
+      </p>
+      <div class="space-x-4">
+        <button onclick="scrollToOrder()" class="bg-blue-600 px-8 py-4 rounded-2xl text-lg hover:bg-blue-700 transition">
+          Заказать уборку
+        </button>
+        <button onclick="openCallModal()" class="bg-white text-gray-900 px-8 py-4 rounded-2xl text-lg hover:bg-gray-100 transition">
+          Позвонить
+        </button>
+      </div>
+      <p class="mt-6 text-lg">
+        Заказать уборку — напишите или позвоните
+      </p>
+    </div>
+  </div>
+</section>
 
-    <button class="primary" onclick="scrollToForm()">Отправить заявку</button>
-    <button class="secondary" onclick="openModal()">Позвонить</button>
+<!-- ORDER FORM -->
+<section id="order" class="max-w-5xl mx-auto px-6 py-24">
+  <h2 class="text-3xl font-extrabold mb-10 text-center">
+    🧽 Оформление заявки на уборку
+  </h2>
 
-    <p style="margin-top:20px;">
-      📧 <strong>aleksan21062009@gmail.com</strong><br>
-      📞 <strong>+7 909-667-31-13</strong>
+  <div class="bg-white rounded-3xl shadow-lg p-10">
+    <div class="grid md:grid-cols-2 gap-6">
+      <input class="border rounded-xl p-4" placeholder="Ваше имя">
+      <input class="border rounded-xl p-4" placeholder="Телефон">
+      <input class="border rounded-xl p-4 md:col-span-2" placeholder="Адрес">
+      <textarea class="border rounded-xl p-4 md:col-span-2" placeholder="Комментарий"></textarea>
+    </div>
+
+    <button onclick="showError()" class="mt-8 w-full bg-blue-600 text-white py-4 rounded-2xl text-lg hover:bg-blue-700">
+      Отправить заявку
+    </button>
+
+    <p class="text-center mt-6 text-gray-500">
+      Email: <strong>aleksan21062009@gmail.com</strong> <br>
+      Телефон: <strong>+7 909-667-31-13</strong>
     </p>
   </div>
 </section>
 
-<section class="section" id="order">
-  <h2>Оформление заявки</h2>
-  <div class="form">
-    <input placeholder="Ваше имя">
-    <input placeholder="Телефон">
-    <textarea placeholder="Что нужно убрать?"></textarea>
-    <button class="primary" onclick="sendError()">Отправить заявку</button>
-  </div>
-</section>
+<!-- REVIEWS -->
+<section id="reviews" class="bg-gray-100 py-24">
+  <div class="max-w-7xl mx-auto px-6">
+    <h2 class="text-3xl font-extrabold mb-12 text-center">
+      ⭐ Отзывы наших клиентов
+    </h2>
 
-<section class="section" id="reviews">
-  <h2>Отзывы</h2>
-  <div class="cards">
-    <div class="card">Анна — Очень чисто и быстро 👍</div>
-    <div class="card">Игорь — Отличный сервис!</div>
-    <div class="card">Мария — Буду заказывать ещё ❤️</div>
-  </div>
-</section>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="bg-white p-6 rounded-2xl shadow">
+        <img class="rounded-xl mb-4" src="https://images.unsplash.com/photo-1581578017426-cc4a4e1c6c8f">
+        <p class="font-semibold">Анна, Москва</p>
+        <p class="text-sm mt-2">Очень чисто, быстро и аккуратно! Буду заказывать ещё.</p>
+      </div>
 
-<section class="section" id="job">
-  <h2>Работа в клининге</h2>
-  <p>Пишите нам: <strong>aleksan21062009@gmail.com</strong></p>
-</section>
-
-<footer>
-  © 2026 Клининг Москва
-</footer>
+      <div class="bg-white p-6 rounded-2xl shadow">
+        <img class="rounded-xl mb-4" src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c">
+        <p class="font-semibold">Игорь</p>
+        <p class="text-sm mt-2">Приятные сотрудники, отличный сервис.</p>
+      </div>
 
 > Xamchez:
-<!-- MODAL -->
-<div class="modal" id="modal">
-  <div class="modal-content">
-    <h3>Позвонить</h3>
-    <p style="font-size:1.2rem;"><strong>+7 909-667-31-13</strong></p>
-    <button class="primary" onclick="callNow()">Позвонить</button>
-    <button onclick="closeModal()">Закрыть</button>
+<div class="bg-white p-6 rounded-2xl shadow">
+        <img class="rounded-xl mb-4" src="https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf">
+        <p class="font-semibold">Марина</p>
+        <p class="text-sm mt-2">Квартира блестит ✨ Спасибо!</p>
+      </div>
+    </div>
+
+    <div class="mt-12 text-center text-gray-500">
+      Вы можете оставить фото и отзыв (функция демонстрационная)
+    </div>
+  </div>
+</section>
+
+<!-- JOB -->
+<section id="job" class="max-w-5xl mx-auto px-6 py-24">
+  <h2 class="text-3xl font-extrabold mb-6 text-center">
+    👷 Работа в клининге
+  </h2>
+
+  <div class="bg-white p-10 rounded-3xl shadow-lg text-center">
+    <p class="text-lg mb-6">
+      Хотите работать в сфере клининга? Мы всегда рады новым людям!
+    </p>
+    <p class="text-xl font-semibold">
+      Пишите на email:
+    </p>
+    <p class="text-blue-600 text-xl font-bold mt-2">
+      aleksan21062009@gmail.com
+    </p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-gray-900 text-white py-10 text-center">
+  <p>© 2026 ЧистоДом — Уборка в Москве</p>
+</footer>
+
+<!-- CALL MODAL -->
+<div id="callModal" class="fixed inset-0 bg-black/50 hidden items-center justify-center z-50">
+  <div class="bg-white rounded-2xl p-8 text-center w-80">
+    <h3 class="text-xl font-bold mb-4">Позвонить</h3>
+    <p class="mb-6 text-lg">+7 909-667-31-13</p>
+    <div class="space-x-4">
+      <a href="tel:+79096673113" class="bg-blue-600 text-white px-6 py-3 rounded-xl">
+        📞 Позвонить
+      </a>
+      <button onclick="closeCallModal()" class="bg-gray-200 px-6 py-3 rounded-xl">
+        Закрыть
+      </button>
+    </div>
   </div>
 </div>
 
+<!-- ERROR MODAL -->
+<div id="errorModal" class="fixed inset-0 bg-black/50 hidden items-center justify-center z-50">
+  <div class="bg-white rounded-2xl p-10 text-center w-80">
+    <div class="text-5xl mb-4">😢</div>
+    <p class="text-lg font-semibold">Ошибка отправки</p>
+    <p class="text-gray-500 mt-2">Заявка не была отправлена</p>
+    <button onclick="closeError()" class="mt-6 bg-blue-600 text-white px-6 py-3 rounded-xl">
+      Понятно
+    </button>
+  </div>
+</div>
+
+<!-- JS -->
 <script>
-function scrollToForm() {
-  document.getElementById("order").scrollIntoView({behavior:"smooth"});
-}
+  function scrollToOrder() {
+    document.getElementById('order').scrollIntoView({ behavior: 'smooth' });
+  }
 
-function sendError() {
-  alert("Ошибка отправки 😢\nПопробуйте позже");
-}
+  function openCallModal() {
+    document.getElementById('callModal').classList.remove('hidden');
+    document.getElementById('callModal').classList.add('flex');
+  }
 
-function openModal() {
-  document.getElementById("modal").style.display="flex";
-}
+  function closeCallModal() {
+    document.getElementById('callModal').classList.add('hidden');
+  }
 
-function closeModal() {
-  document.getElementById("modal").style.display="none";
-}
+  function showError() {
+    document.getElementById('errorModal').classList.remove('hidden');
+    document.getElementById('errorModal').classList.add('flex');
+  }
 
-function callNow() {
-  window.location.href="tel:+79096673113";
-}
+  function closeError() {
+    document.getElementById('errorModal').classList.add('hidden');
+  }
 </script>
 
 </body>
